@@ -40,7 +40,7 @@ with st.spinner("Loading Data..."):
 
     #creating the ui interface
     c1,c2,c3 = st.columns([2,1,1])
-    c1.title("Immigration analysis")
+    c1.title("Immigration Analysis")
     c2.header("Summary of data")
     total_rows = df.shape[0]
     total_immig = df.total.sum()
@@ -55,7 +55,7 @@ with st.spinner("Loading Data..."):
     top_10 = df.head(10)['total']
     c3.dataframe(top_10, use_container_width=True)
     figTopTen = px.bar(top_10, x=top_10.index,y='total')
-    c3.plotly_chart(figTopTen,use_container_width=True)
+    # c3.plotly_chart(figTopTen,use_container_width=True)
 
     # country wise visualization
     countries = df.index.tolist()
@@ -64,7 +64,7 @@ with st.spinner("Loading Data..."):
     fig = px.area(immig,x=immig.index,y=immig.values,title="Immigration trend")
     c1.plotly_chart(fig,use_container_width=True)
     fig2 = px.histogram(immig,x= immig.values, nbins=10, marginal="box")
-    c1.plotly_chart(fig2, use_container_width=True)
+    # c1.plotly_chart(fig2, use_container_width=True)
 
     max_immig_for_country = immig.max()
     max_year = immig.idxmax()
